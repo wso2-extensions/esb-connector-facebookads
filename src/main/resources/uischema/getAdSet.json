@@ -1,0 +1,83 @@
+{
+  "connectorName": "facebookAds",
+  "operationName": "getAdSet",
+  "title": "Get Ad Set",
+  "help": "This is Get Ad Set operation.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "facebookAds"
+              ],
+              "defaultType": "connection.facebookAds",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used"
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "adSetId",
+                    "displayName": "Ad Set Id",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "ID of the ad set."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "datePreset",
+                    "displayName": "Date Preset",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Predefined date range used to aggregate insights metrics."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "timeRange",
+                    "displayName": "Time Range",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Time Range. Note if time range is invalid, it will be ignored."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "fields",
+                    "displayName": "Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Fields of the ad set"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

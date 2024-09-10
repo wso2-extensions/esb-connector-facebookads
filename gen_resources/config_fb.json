@@ -1,0 +1,85 @@
+{
+  "connectors": [
+    {
+      "connectorName": "FacebookAds",
+      "auth": "none",
+      "openapiSpecificationPath": [
+        "/Users/sanoj/work/google-ads-api/facebook_ads_open_api.yaml"
+      ],
+      "project": {
+        "groupId": "org.wso2.carbon.esb.connector",
+        "artifactId": "facebook.ads",
+        "version": "1.0.0-SNAPSHOT"
+      },
+      "iconFolderPath": "",
+      "mappers": {
+        "operationName": [
+          {
+            "openapiOperationID": "Get campaigns",
+            "connectorOperationName": "getCampaigns"
+          },
+          {
+            "openapiOperationID": "Create campaign",
+            "connectorOperationName": "createCampaign"
+          },
+          {
+            "openapiOperationID": "Dissociate campaign",
+            "connectorOperationName": "dissociateCampaign"
+          },
+          {
+            "openapiOperationID": "Update campaign",
+            "connectorOperationName": "updateCampaign"
+          },
+          {
+            "openapiOperationID": "Dissociate campaign",
+            "connectorOperationName": "dissociateCampaign"
+          },
+          {
+            "openapiOperationID": "Delete campaign",
+            "connectorOperationName": "deleteCampaign"
+          },
+          {
+            "openapiOperationID": "Get Ad Sets",
+            "connectorOperationName": "getAdSets"
+          },
+          {
+            "openapiOperationID": "Create Ad Set",
+            "connectorOperationName": "createAdSet"
+          },
+          {
+            "openapiOperationID": "Get Ad Set",
+            "connectorOperationName": "getAdSet"
+          },
+          {
+            "openapiOperationID": "Update Ad Set",
+            "connectorOperationName": "updateAdSet"
+          },
+          {
+            "openapiOperationID": "Delete Ad Set",
+            "connectorOperationName": "deleteAdSet"
+          },
+          {
+            "openapiOperationID": "Get ads",
+            "connectorOperationName": "getAds"
+          },
+          {
+            "openapiOperationID": "Create Ad",
+            "connectorOperationName": "createAd"
+          },
+          {
+            "openapiOperationID": "Get ad",
+            "connectorOperationName": "getAd"
+          },
+          {
+            "openapiOperationID": "Update Ad",
+            "connectorOperationName": "updateAd"
+          },
+          {
+            "openapiOperationID": "Delete Ad",
+            "connectorOperationName": "deleteAd"
+          }
+        ]
+      }
+    }
+  ]
+}

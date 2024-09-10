@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ ~  Copyright (c) 2024, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+
+<!-- Generated on 10-Tue, 09, 2024 08:13:26+0530 -->
+
+<component name="functions" type="synapse/template">
+    <subComponents>
+        <component name="createAd">
+            <file>createAd.xml</file>
+            <description>This is Create Ad operation.</description>
+        </component>
+        <component name="createAdSet">
+            <file>createAdSet.xml</file>
+            <description>This is Create Ad Set operation.</description>
+        </component>
+        <component name="createCampaign">
+            <file>createCampaign.xml</file>
+            <description>This is Create campaign operation.</description>
+        </component>
+        <component name="deleteAd">
+            <file>deleteAd.xml</file>
+            <description>This is Delete Ad operation.</description>
+        </component>
+        <component name="deleteAdSet">
+            <file>deleteAdSet.xml</file>
+            <description>This is Delete Ad Set operation.</description>
+        </component>
+        <component name="deleteCampaign">
+            <file>deleteCampaign.xml</file>
+            <description>This is Delete campaign operation.</description>
+        </component>
+        <component name="dissociateCampaign">
+            <file>dissociateCampaign.xml</file>
+            <description>This is Dissociate campaign operation.</description>
+        </component>
+        <component name="getAd">
+            <file>getAd.xml</file>
+            <description>This is Get ad operation.</description>
+        </component>
+        <component name="getAdSet">
+            <file>getAdSet.xml</file>
+            <description>This is Get Ad Set operation.</description>
+        </component>
+        <component name="getAdSets">
+            <file>getAdSets.xml</file>
+            <description>This is Get Ad Sets operation.</description>
+        </component>
+        <component name="getAds">
+            <file>getAds.xml</file>
+            <description>This is Get ads operation.</description>
+        </component>
+        <component name="getCampaigns">
+            <file>getCampaigns.xml</file>
+            <description>This is Get campaigns operation.</description>
+        </component>
+        <component name="updateAd">
+            <file>updateAd.xml</file>
+            <description>This is Update Ad operation.</description>
+        </component>
+        <component name="updateAdSet">
+            <file>updateAdSet.xml</file>
+            <description>This is Update Ad Set operation.</description>
+        </component>
+        <component name="updateCampaign">
+            <file>updateCampaign.xml</file>
+            <description>This is Update campaign operation.</description>
+        </component>
+    </subComponents>
+</component>
