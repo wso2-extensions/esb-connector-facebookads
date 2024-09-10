@@ -2,7 +2,7 @@
   "connectorName": "facebookAds",
   "operationName": "deleteAdSet",
   "title": "Delete Ad Set",
-  "help": "This is Delete Ad Set operation.",
+  "help": "Deletes a ad set.",
   "elements": [
     {
       "type": "attributeGroup",
@@ -21,7 +21,7 @@
               "defaultType": "connection.facebookAds",
               "defaultValue": "",
               "required": "true",
-              "helpTip": "Connection to be used"
+              "helpTip": "Connection to be used."
             }
           },
           {

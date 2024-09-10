@@ -24,10 +24,11 @@ public class Constants {
     public static final String ACCESS_TOKEN = "access_token";
     public static final String PROPERTY_ERROR_CODE = "ERROR_CODE";
     public static final String PROPERTY_ERROR_MESSAGE = "ERROR_MESSAGE";
-    public static final String GENERAL_ERROR_MSG = "Facebook Ad Network connector encountered an error: ";
+    public static final String GENERAL_ERROR_MSG = "Facebook Ads connector encountered an error: ";
+    public static final String EQUAL_SIGN = "=";
 
     static class ErrorCodes {
         public static final String INVALID_CONFIG = "701102";
-        public static final String GENERAL_ERROR = "701103";
+        public static final String GENERAL_ERROR = "701101";
     }
 }

@@ -17,7 +17,7 @@ tags:
   - name: Ad
     description: Contains information to display an ad and associate it with an ad set.
 security:
-  - ApiKeyAuth: [ ]
+  - ApiKeyAuth: []
 paths:
   /act_{ad_account_id}/campaigns:
     get:
@@ -100,18 +100,6 @@ paths:
                 - name
                 - id
                 ########## Add all fields (optional)
-        - in: query
-          name: summary
-          description: Aggregated information about the edge, such as counts
-          style: form
-          explode: false
-          schema:
-            type: array
-            items:
-              type: string
-              enum:
-                - insights
-                - total_count
       responses:
         200:
           description: Success
@@ -122,7 +110,7 @@ paths:
     post:
       tags:
         - "Campaign"
-      description: Cerates a campaign.
+      description: Creates a campaign.
       operationId: Create campaign
       parameters:
         - in: path
@@ -298,7 +286,7 @@ paths:
     post:
       tags:
         - "AdSet"
-      description: Cerates an ad set.
+      description: Creates an ad set.
       operationId: Create Ad Set
       parameters:
         - in: path
@@ -326,7 +314,7 @@ paths:
     get:
       tags:
         - "AdSet"
-      description: Return date related to an ad set.
+      description: Return data related to an ad set.
       operationId: Get Ad Set
       parameters:
         - in: path
@@ -471,7 +459,7 @@ paths:
               - this_year
         - in: query
           name: effective_status
-          description: Effective status for the ads
+          description: Filter ads by effective status
           schema:
             type: array
             items:
@@ -496,7 +484,7 @@ paths:
             $ref: '#/components/schemas/TimeRange'
         - in: query
           name: updated_since
-          description: Updated since.
+          description: Time since the Ad has been updated.
           schema:
             type: integer
         - in: query
@@ -512,18 +500,6 @@ paths:
                 - name
                 - id
                 ########## Add all fields (optional)
-        - in: query
-          name: summary
-          description: Aggregated information about the edge, such as counts
-          style: form
-          explode: false
-          schema:
-            type: array
-            items:
-              type: string
-              enum:
-                - insights
-                - total_count
       responses:
         200:
           description: Success
@@ -534,7 +510,7 @@ paths:
     post:
       tags:
         - "Ad"
-      description: Cerates an ad.
+      description: Creates an ad.
       operationId: Create Ad
       parameters:
         - in: path
@@ -558,7 +534,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AdResponse'
-  /{ad_id}:
+  /{ad_id}/:
     get:
       tags:
         - "Ad"
@@ -601,11 +577,6 @@ paths:
           description: Date range used to aggregate insights metrics
           schema:
             $ref: '#/components/schemas/TimeRange'
-        - in: query
-          name: updated_since
-          description: Updated since.
-          schema:
-            type: integer
         - in: query
           name: fields
           description: Fields of the campaign
@@ -995,7 +966,7 @@ components:
         lifetime_budget:
           description: |
             Lifetime budget of this campaign. All adsets under this campaign will share this budget. 
-            You can either set budget at the campaign level or at the adset level, not both. 
+            You can either set budget at the campaign level or at the adset level, not both.
           type: integer
         lifetime_imps:
           description: Lifetime impressions. Available only for campaigns with buying_type=FIXED_CPM
@@ -1221,7 +1192,7 @@ components:
         lifetime_budget:
           description: |
             Lifetime budget of this campaign. All adsets under this campaign will share this budget. 
-            You can either set budget at the campaign level or at the adset level, not both. 
+            You can either set budget at the campaign level or at the adset level, not both.
           type: integer
         lifetime_imps:
           description: Lifetime impressions. Available only for campaigns with buying_type=FIXED_CPM
@@ -1447,7 +1418,7 @@ components:
         lifetime_budget:
           description: |
             Lifetime budget of this campaign. All adsets under this campaign will share this budget. 
-            You can either set budget at the campaign level or at the adset level, not both. 
+            You can either set budget at the campaign level or at the adset level, not both.
           type: integer
         name:
           description: Name for this campaign
@@ -1497,7 +1468,7 @@ components:
         spend_cap:
           description: |
             A spend cap for the campaign, such that it will not spend more than this cap. Defined as integer value of 
-            subunit in your currency with a minimum value of $100 USD (or approximate local equivalent). 
+            subunit in your currency with a minimum value of $100 USD (or approximate local equivalent).
           type: integer
         start_time:
           description: Start time
@@ -1528,7 +1499,7 @@ components:
       description: Campaign operationupdate properties
       properties:
         adlabels:
-          description: Ad Labels associated with this campaign ###########        
+          description: Ad Labels associated with this campaign ###########
           type: array
           items:
             type: object
@@ -1541,7 +1512,7 @@ components:
             lifetime_budget, required in the process of toggling between campaign budget and adset budge
             
             type: array
-            items: 
+            items:
           $ref: '#/components/schemas/AdsetBudgets'
         bid_strategy:
           description: Bid strategy for this campaign to suit your specific business goals
@@ -1584,7 +1555,7 @@ components:
         lifetime_budget:
           description: |
             Lifetime budget of this campaign. All adsets under this campaign will share this budget. 
-            You can either set budget at the campaign level or at the adset level, not both. 
+            You can either set budget at the campaign level or at the adset level, not both.
           type: integer
         name:
           description: Name for this campaign
@@ -1635,7 +1606,7 @@ components:
         spend_cap:
           description: |
             A spend cap for the campaign, such that it will not spend more than this cap. Defined as integer value of 
-            subunit in your currency with a minimum value of $100 USD (or approximate local equivalent). 
+            subunit in your currency with a minimum value of $100 USD (or approximate local equivalent).
           type: integer
         start_time:
           description: Start time

@@ -2,7 +2,7 @@
   "connectorName": "facebookAds",
   "operationName": "dissociateCampaign",
   "title": "Dissociate Campaign",
-  "help": "This is Dissociate campaign operation.",
+  "help": "Dissociate a campaign from an AdAccount.",
   "elements": [
     {
       "type": "attributeGroup",
@@ -21,7 +21,7 @@
               "defaultType": "connection.facebookAds",
               "defaultValue": "",
               "required": "true",
-              "helpTip": "Connection to be used"
+              "helpTip": "Connection to be used."
             }
           },
           {
@@ -43,23 +43,23 @@
                 {
                   "type": "attribute",
                   "value": {
-                    "name": "beforeDate",
-                    "displayName": "Before Date",
-                    "inputType": "stringOrExpression",
-                    "defaultValue": "",
-                    "required": "false",
-                    "helpTip": "Set a before date to delete campaigns before this date"
-                  }
-                },
-                {
-                  "type": "attribute",
-                  "value": {
                     "name": "deleteStrategy",
                     "displayName": "Delete Strategy",
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "true",
-                    "helpTip": "Delete strategy"
+                    "helpTip": "Delete strategy."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "beforeDate",
+                    "displayName": "Before Date",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Set a before date to delete campaigns before this date."
                   }
                 },
                 {
@@ -70,7 +70,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "false",
-                    "helpTip": "Object count"
+                    "helpTip": "Object count."
                   }
                 }
               ]

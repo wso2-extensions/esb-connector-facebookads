@@ -23,63 +23,63 @@
     <subComponents>
         <component name="createAd">
             <file>createAd.xml</file>
-            <description>This is Create Ad operation.</description>
+            <description>Create an ad.</description>
         </component>
         <component name="createAdSet">
             <file>createAdSet.xml</file>
-            <description>This is Create Ad Set operation.</description>
+            <description>Creates an ad set.</description>
         </component>
         <component name="createCampaign">
             <file>createCampaign.xml</file>
-            <description>This is Create campaign operation.</description>
+            <description>Create a campaign.</description>
         </component>
         <component name="deleteAd">
             <file>deleteAd.xml</file>
-            <description>This is Delete Ad operation.</description>
+            <description>Deletes an ad.</description>
         </component>
         <component name="deleteAdSet">
             <file>deleteAdSet.xml</file>
-            <description>This is Delete Ad Set operation.</description>
+            <description>Deletes a ad set.</description>
         </component>
         <component name="deleteCampaign">
             <file>deleteCampaign.xml</file>
-            <description>This is Delete campaign operation.</description>
+            <description>Deletes a campaign.</description>
         </component>
         <component name="dissociateCampaign">
             <file>dissociateCampaign.xml</file>
-            <description>This is Dissociate campaign operation.</description>
+            <description>Dissociate a campaign from an AdAccount.</description>
         </component>
         <component name="getAd">
             <file>getAd.xml</file>
-            <description>This is Get ad operation.</description>
+            <description>Returns data of an ad.</description>
         </component>
         <component name="getAdSet">
             <file>getAdSet.xml</file>
-            <description>This is Get Ad Set operation.</description>
+            <description>Return data related to an ad set.</description>
         </component>
         <component name="getAdSets">
             <file>getAdSets.xml</file>
-            <description>This is Get Ad Sets operation.</description>
+            <description>Returns all ad sets from one ad account.</description>
         </component>
         <component name="getAds">
             <file>getAds.xml</file>
-            <description>This is Get ads operation.</description>
+            <description>Returns ads under this ad account.</description>
         </component>
         <component name="getCampaigns">
             <file>getCampaigns.xml</file>
-            <description>This is Get campaigns operation.</description>
+            <description>Returns campaigns under this ad account.</description>
         </component>
         <component name="updateAd">
             <file>updateAd.xml</file>
-            <description>This is Update Ad operation.</description>
+            <description>Updates an ad.</description>
         </component>
         <component name="updateAdSet">
             <file>updateAdSet.xml</file>
-            <description>This is Update Ad Set operation.</description>
+            <description>Updates an ad set.</description>
         </component>
         <component name="updateCampaign">
             <file>updateCampaign.xml</file>
-            <description>This is Update campaign operation.</description>
+            <description>Updates a campaign.</description>
         </component>
     </subComponents>
 </component>

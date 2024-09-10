@@ -2,7 +2,7 @@
   "connectorName": "facebookAds",
   "operationName": "getAds",
   "title": "Get Ads",
-  "help": "This is Get ads operation.",
+  "help": "Returns ads under this ad account.",
   "elements": [
     {
       "type": "attributeGroup",
@@ -21,7 +21,7 @@
               "defaultType": "connection.facebookAds",
               "defaultValue": "",
               "required": "true",
-              "helpTip": "Connection to be used"
+              "helpTip": "Connection to be used."
             }
           },
           {
@@ -59,7 +59,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "false",
-                    "helpTip": "Effective status for the ads"
+                    "helpTip": "Filter ads by effective status."
                   }
                 },
                 {
@@ -70,7 +70,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "false",
-                    "helpTip": "Date range used to aggregate insights metrics"
+                    "helpTip": "Date range used to aggregate insights metrics."
                   }
                 },
                 {
@@ -81,7 +81,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "false",
-                    "helpTip": "Updated since."
+                    "helpTip": "Time since the Ad has been updated."
                   }
                 },
                 {
@@ -92,18 +92,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "false",
-                    "helpTip": "Fields of the campaign"
-                  }
-                },
-                {
-                  "type": "attribute",
-                  "value": {
-                    "name": "summary",
-                    "displayName": "Summary",
-                    "inputType": "stringOrExpression",
-                    "defaultValue": "",
-                    "required": "false",
-                    "helpTip": "Aggregated information about the edge, such as counts"
+                    "helpTip": "Fields of the ads."
                   }
                 }
               ]

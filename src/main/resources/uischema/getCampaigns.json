@@ -2,7 +2,7 @@
   "connectorName": "facebookAds",
   "operationName": "getCampaigns",
   "title": "Get Campaigns",
-  "help": "This is Get campaigns operation.",
+  "help": "Returns campaigns under this ad account.",
   "elements": [
     {
       "type": "attributeGroup",
@@ -21,7 +21,7 @@
               "defaultType": "connection.facebookAds",
               "defaultValue": "",
               "required": "true",
-              "helpTip": "Connection to be used"
+              "helpTip": "Connection to be used."
             }
           },
           {
@@ -59,7 +59,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "false",
-                    "helpTip": "Effective status for the campaigns"
+                    "helpTip": "Effective status for the campaigns."
                   }
                 },
                 {
@@ -81,7 +81,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "false",
-                    "helpTip": "Date range used to aggregate insights metrics"
+                    "helpTip": "Date range used to aggregate insights metrics."
                   }
                 },
                 {
@@ -92,18 +92,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "false",
-                    "helpTip": "Fields of the campaign"
-                  }
-                },
-                {
-                  "type": "attribute",
-                  "value": {
-                    "name": "summary",
-                    "displayName": "Summary",
-                    "inputType": "stringOrExpression",
-                    "defaultValue": "",
-                    "required": "false",
-                    "helpTip": "Aggregated information about the edge, such as counts"
+                    "helpTip": "Fields of the campaign."
                   }
                 }
               ]

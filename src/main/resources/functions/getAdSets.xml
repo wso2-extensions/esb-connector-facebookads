@@ -37,5 +37,16 @@
                 <http method="GET" uri-template="{uri.var.base}{+uri.var.urlPath}{+uri.var.urlQuery}"/>
             </endpoint>
         </call>
+        <!-- Remove custom header information -->
+        <header name="x-business-use-case-usage" scope="transport" action="remove"/>
+        <header name="facebook-api-version" scope="transport" action="remove"/>
+        <header name="Strict-Transport-Security" scope="transport" action="remove"/>
+        <header name="x-fb-request-id" scope="transport" action="remove"/>
+        <header name="x-fb-trace-id" scope="transport" action="remove"/>
+        <header name="x-fb-rev" scope="transport" action="remove"/>
+        <header name="X-FB-Debug" scope="transport" action="remove"/>
+        <header name="x-fb-server-load" scope="transport" action="remove"/>
+        <header name="X-FB-Connection-Quality" scope="transport" action="remove"/>
+        <header name="Alt-Svc" scope="transport" action="remove"/>
     </sequence>
 </template>

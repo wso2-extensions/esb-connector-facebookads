@@ -2,7 +2,7 @@
   "connectorName": "facebookAds",
   "operationName": "getAdSet",
   "title": "Get Ad Set",
-  "help": "This is Get Ad Set operation.",
+  "help": "Return data related to an ad set.",
   "elements": [
     {
       "type": "attributeGroup",
@@ -21,7 +21,7 @@
               "defaultType": "connection.facebookAds",
               "defaultValue": "",
               "required": "true",
-              "helpTip": "Connection to be used"
+              "helpTip": "Connection to be used."
             }
           },
           {
@@ -70,7 +70,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "false",
-                    "helpTip": "Fields of the ad set"
+                    "helpTip": "Fields of the ad set."
                   }
                 }
               ]

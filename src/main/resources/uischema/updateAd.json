@@ -2,7 +2,7 @@
   "connectorName": "facebookAds",
   "operationName": "updateAd",
   "title": "Update Ad",
-  "help": "This is Update Ad operation.",
+  "help": "Updates an ad.",
   "elements": [
     {
       "type": "attributeGroup",
@@ -21,7 +21,7 @@
               "defaultType": "connection.facebookAds",
               "defaultValue": "",
               "required": "true",
-              "helpTip": "Connection to be used"
+              "helpTip": "Connection to be used."
             }
           },
           {
@@ -37,7 +37,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "true",
-                    "helpTip": "ID of the ad"
+                    "helpTip": "ID of the ad."
                   }
                 },
                 {
@@ -48,7 +48,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "true",
-                    "helpTip": "Ad set update properties"
+                    "helpTip": "Ad set update properties."
                   }
                 }
               ]

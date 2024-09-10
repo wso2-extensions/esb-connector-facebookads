@@ -2,7 +2,7 @@
   "connectorName": "facebookAds",
   "operationName": "updateCampaign",
   "title": "Update Campaign",
-  "help": "This is Update campaign operation.",
+  "help": "Updates a campaign.",
   "elements": [
     {
       "type": "attributeGroup",
@@ -21,7 +21,7 @@
               "defaultType": "connection.facebookAds",
               "defaultValue": "",
               "required": "true",
-              "helpTip": "Connection to be used"
+              "helpTip": "Connection to be used."
             }
           },
           {
@@ -48,7 +48,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "true",
-                    "helpTip": "Campaign update properties"
+                    "helpTip": "Campaign update properties."
                   }
                 }
               ]

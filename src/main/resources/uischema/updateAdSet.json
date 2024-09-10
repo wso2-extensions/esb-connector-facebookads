@@ -2,7 +2,7 @@
   "connectorName": "facebookAds",
   "operationName": "updateAdSet",
   "title": "Update Ad Set",
-  "help": "This is Update Ad Set operation.",
+  "help": "Updates an ad set.",
   "elements": [
     {
       "type": "attributeGroup",
@@ -21,7 +21,7 @@
               "defaultType": "connection.facebookAds",
               "defaultValue": "",
               "required": "true",
-              "helpTip": "Connection to be used"
+              "helpTip": "Connection to be used."
             }
           },
           {
@@ -48,7 +48,7 @@
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "true",
-                    "helpTip": "Ad set update properties"
+                    "helpTip": "Ad set update properties."
                   }
                 }
               ]
