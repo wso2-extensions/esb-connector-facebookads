@@ -29,7 +29,7 @@
     <parameter name="fields" description="Fields of the campaign"/>
     <parameter name="summary" description="Aggregated information about the edge, such as counts"/>
     <sequence>
-        <class name="org.wso2.healthcare.integration.common.ehr.RestURLBuilder">
+        <class name="org.wso2.carbon.facebook.ads.connector.RestURLBuilder">
             <property name="operationPath" value="/act_{ad_account_id}/campaigns"/>
             <property name="pathParameters" value="adAccountId,"/>
             <property name="queryParameters" value="datePreset,effectiveStatus,isCompleted,timeRange,fields,summary,"/>

@@ -24,7 +24,7 @@
     <!-- Query Parameter List -->
     <parameter name="properties" description="Ad set properties"/>
     <sequence>
-        <class name="org.wso2.healthcare.integration.common.ehr.RestURLBuilder">
+        <class name="org.wso2.carbon.facebook.ads.connector.RestURLBuilder">
             <property name="operationPath" value="/act_{ad_account_id}/adsets"/>
             <property name="pathParameters" value="adAccountId,"/>
             <property name="queryParameters" value="properties,"/>

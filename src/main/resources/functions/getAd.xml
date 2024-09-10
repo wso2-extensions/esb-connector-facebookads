@@ -27,7 +27,7 @@
     <parameter name="updatedSince" description="Updated since."/>
     <parameter name="fields" description="Fields of the campaign"/>
     <sequence>
-        <class name="org.wso2.healthcare.integration.common.ehr.RestURLBuilder">
+        <class name="org.wso2.carbon.facebook.ads.connector.RestURLBuilder">
             <property name="operationPath" value="/{ad_id}"/>
             <property name="pathParameters" value="adId,"/>
             <property name="queryParameters" value="datePreset,timeRange,updatedSince,fields,"/>
