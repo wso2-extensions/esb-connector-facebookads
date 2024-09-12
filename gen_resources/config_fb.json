@@ -4,7 +4,7 @@
       "connectorName": "FacebookAds",
       "auth": "none",
       "openapiSpecificationPath": [
-        "/Users/sanoj/work/google-ads-api/facebook_ads_open_api.yaml"
+        "esb-connector-facebookads/gen_resources/facebook_ads_open_api.yaml"
       ],
       "project": {
         "groupId": "org.wso2.carbon.esb.connector",

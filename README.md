@@ -9,7 +9,7 @@
 
 ## Documentation
 
-Please refer to the [Facebook Ads Overview](http://localhost:8000/en/latest/reference/connectors/facebook-ads-connector/facebook-ads-overview/) documentation.
+Please refer to the [Facebook Ads Overview](https://mi.docs.wso2.com/en/latest/reference/connectors/facebook-ads-connector/facebook-ads-overview/) documentation.
 
 ### Building From the Source
 
