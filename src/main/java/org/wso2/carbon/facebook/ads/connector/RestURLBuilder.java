@@ -147,17 +147,33 @@ public class RestURLBuilder extends AbstractConnector {
         }
     }
 
-    // Method to parse JSON string to a Map using the class-level Gson instance
+    /**
+     * Parse the JSON string to a Map.
+     *
+     * @param jsonString JSON string
+     * @return Map<String, Object> Map of JSON properties
+     *
+     */
     private static Map<String, Object> parseJsonStringToMap(String jsonString) {
         Type type = new TypeToken<Map<String, Object>>() {}.getType();
         return gson.fromJson(jsonString, type);
     }
 
+    /**
+     * Process JSON properties and add them to the URL query.
+     *
+     * @param urlQuery URL query
+     * @param params   Map of JSON properties
+     * @throws UnsupportedEncodingException If an error occurs while encoding the URL
+     */
     private static void processJSONProperties(StringJoiner urlQuery, Map<String, Object> params) throws UnsupportedEncodingException {
         for (Map.Entry<String, Object> entry : params.entrySet()) {
             String key = URLEncoder.encode(entry.getKey(), encoding);
             Object value = entry.getValue();
-            if (value instanceof List) {
+            if (value instanceof Map) {
+                String jsonStr = gson.toJson(value);
+                urlQuery.add(key + Constants.EQUAL_SIGN + jsonStr);
+            } else if (value instanceof List) {
                 List<?> list = (List<?>) value;
                 for (Object item : list) {
                     String itemValue = URLEncoder.encode(item.toString(), encoding);
