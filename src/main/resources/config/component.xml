@@ -24,6 +24,7 @@
         <component name="init">
             <file>init.xml</file>
             <description>Init configuration file for facebookAds connector.</description>
+            <hidden>true</hidden>
         </component>
     </subComponents>
 </component>
