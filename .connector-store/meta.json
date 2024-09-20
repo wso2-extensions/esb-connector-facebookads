@@ -1,0 +1,17 @@
+{
+    "name": "Facebook Ads",
+    "owner": "WSO2",
+    "category": "Developer Tools",
+    "documentationUrl": "https://mi.docs.wso2.com/en/latest/reference/connectors/facebook-ads-connector/facebook-ads-overview/",
+    "description": "The Facebook Ads Connector allows you to access the Facebook Marketing API. This lets you create, update, and delete ad campaigns and ads.",
+    "status": "Active",
+    "releases": [
+        {
+            "tagName": "v1.0.0",
+            "products": [
+                "MI 4.3.0"
+            ],
+            "isHidden": false
+        }
+    ]
+}
