@@ -1,0 +1,54 @@
+<!--
+ ~  Copyright (c) 2024, WSO2 LLC. (http://www.wso2.org) All Rights Reserved.
+ ~
+ ~  WSO2 LLC. licenses this file to you under the Apache License,
+ ~  Version 2.0 (the "License"); you may not use this file except
+ ~  in compliance with the License.
+ ~  You may obtain a copy of the License at
+ ~
+ ~    http://www.apache.org/licenses/LICENSE-2.0
+ ~
+ ~  Unless required by applicable law or agreed to in writing,
+ ~  software distributed under the License is distributed on an
+ ~  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~  KIND, either express or implied.  See the License for the
+ ~  specific language governing permissions and limitations
+ ~  under the License.
+-->
+
+<!-- Generated on 10-Tue, 09, 2024 08:13:26+0530 -->
+
+<template xmlns="http://ws.apache.org/ns/synapse" name="getCampaigns">
+    <!-- Path Parameter List -->
+    <parameter name="adAccountId" description="ID of the ad account."/>
+    <!-- Query Parameter List -->
+    <parameter name="datePreset" description="Predefined date range used to aggregate insights metrics."/>
+    <parameter name="effectiveStatus" description="Effective status for the campaigns"/>
+    <parameter name="isCompleted" description="If true, we return completed campaigns."/>
+    <parameter name="timeRange" description="Date range used to aggregate insights metrics"/>
+    <parameter name="fields" description="Fields of the campaign"/>
+    <sequence>
+        <class name="org.wso2.carbon.facebook.ads.connector.RestURLBuilder">
+            <property name="operationPath" value="/act_{ad_account_id}/campaigns"/>
+            <property name="pathParameters" value="adAccountId,"/>
+            <property name="queryParameters" value="datePreset,effectiveStatus,isCompleted,timeRange,fields,"/>
+        </class>
+        <header name="Accept" value="application/json" scope="transport" action="set"/>
+        <call>
+            <endpoint>
+                <http method="GET" uri-template="{uri.var.base}{+uri.var.urlPath}{+uri.var.urlQuery}"/>
+            </endpoint>
+        </call>
+        <!-- Remove custom header information -->
+        <header name="x-business-use-case-usage" scope="transport" action="remove"/>
+        <header name="facebook-api-version" scope="transport" action="remove"/>
+        <header name="Strict-Transport-Security" scope="transport" action="remove"/>
+        <header name="x-fb-request-id" scope="transport" action="remove"/>
+        <header name="x-fb-trace-id" scope="transport" action="remove"/>
+        <header name="x-fb-rev" scope="transport" action="remove"/>
+        <header name="X-FB-Debug" scope="transport" action="remove"/>
+        <header name="x-fb-server-load" scope="transport" action="remove"/>
+        <header name="X-FB-Connection-Quality" scope="transport" action="remove"/>
+        <header name="Alt-Svc" scope="transport" action="remove"/>
+    </sequence>
+</template>

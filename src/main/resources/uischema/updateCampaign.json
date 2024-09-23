@@ -1,0 +1,61 @@
+{
+  "connectorName": "facebookAds",
+  "operationName": "updateCampaign",
+  "title": "Update Campaign",
+  "help": "Updates a campaign.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "facebookAds"
+              ],
+              "defaultType": "connection.facebookAds",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "campaignId",
+                    "displayName": "Campaign Id",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "ID of the campaign."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "properties",
+                    "displayName": "Properties",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "Campaign update properties."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

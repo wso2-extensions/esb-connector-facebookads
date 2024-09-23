@@ -1,0 +1,83 @@
+{
+  "connectorName": "facebookAds",
+  "operationName": "getAd",
+  "title": "Get Ad",
+  "help": "Returns data of an ad.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "facebookAds"
+              ],
+              "defaultType": "connection.facebookAds",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "adId",
+                    "displayName": "Ad Id",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "ID of the ad."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "datePreset",
+                    "displayName": "Date Preset",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Predefined date range used to aggregate insights metrics."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "timeRange",
+                    "displayName": "Time Range",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Date range used to aggregate insights metrics."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "fields",
+                    "displayName": "Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Fields of the Ad."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

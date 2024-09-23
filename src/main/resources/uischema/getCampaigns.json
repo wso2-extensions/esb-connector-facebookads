@@ -1,0 +1,105 @@
+{
+  "connectorName": "facebookAds",
+  "operationName": "getCampaigns",
+  "title": "Get Campaigns",
+  "help": "Returns campaigns under this ad account.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "facebookAds"
+              ],
+              "defaultType": "connection.facebookAds",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "adAccountId",
+                    "displayName": "Ad Account Id",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "ID of the ad account."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "datePreset",
+                    "displayName": "Date Preset",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Predefined date range used to aggregate insights metrics."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "effectiveStatus",
+                    "displayName": "Effective Status",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Effective status for the campaigns."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "isCompleted",
+                    "displayName": "Is Completed",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "If true, we return completed campaigns."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "timeRange",
+                    "displayName": "Time Range",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Date range used to aggregate insights metrics."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "fields",
+                    "displayName": "Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "false",
+                    "helpTip": "Fields of the campaign."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
