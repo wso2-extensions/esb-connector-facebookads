@@ -77,6 +77,34 @@
           {
             "openapiOperationID": "Delete Ad",
             "connectorOperationName": "deleteAd"
+          },
+          {
+            "openapiOperationID": "Get Ad Creatives",
+            "connectorOperationName": "getAdCreatives"
+          },
+          {
+            "openapiOperationID": "Create Ad Creatives",
+            "connectorOperationName": "createAdCreative"
+          },
+          {
+            "openapiOperationID": "Delete Ad Creatives",
+            "connectorOperationName": "deleteAdCreative"
+          },
+          {
+            "openapiOperationID": "Get Custom Audiences",
+            "connectorOperationName": "getCustomAudiences"
+          },
+          {
+            "openapiOperationID": "Create Custom Audience",
+            "connectorOperationName": "createCustomAudience"
+          },
+          {
+            "openapiOperationID": "Delete Custom Audience",
+            "connectorOperationName": "deleteCustomAudience"
+          },
+          {
+            "openapiOperationID": "Update Custom Audience",
+            "connectorOperationName": "updateCustomAudience"
           }
         ]
       }
