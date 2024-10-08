@@ -89,14 +89,6 @@
             <file>createCustomAudience.xml</file>
             <description>Creates a custom audience.</description>
         </component>
-        <component name="deleteAdCreative">
-            <file>deleteAdCreative.xml</file>
-            <description>Deletes an ad creative.</description>
-        </component>
-        <component name="deleteCustomAudience">
-            <file>deleteCustomAudience.xml</file>
-            <description>Delete a custom audience.</description>
-        </component>
         <component name="updateCustomAudience">
             <file>updateCustomAudience.xml</file>
             <description>Updates a custom audience.</description>
