@@ -17,8 +17,118 @@ tags:
   - name: Ad
     description: Contains information to display an ad and associate it with an ad set.
 security:
-  - ApiKeyAuth: []
+  - ApiKeyAuth: [ ]
 paths:
+  /act_{ad_account_id}/adcreatives:
+    get:
+      summary: Retrieve a list of ad creatives.
+      operationId: Get Ad Creatives
+      responses:
+        '200':
+          description: A list of ad creatives.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AdCreative'
+    post:
+      summary: Create a new ad creative.
+      operationId: Create Ad Creatives
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AdCreativeCreate'
+      responses:
+        '201':
+          description: Ad creative created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AdCreative'
+  /{ad_creative_id}:
+    delete:
+      summary: Delete an ad creative.
+      operationId: Delete Ad Creatives
+      parameters:
+        - in: path
+          name: ad_creative_id
+          required: true
+          schema:
+            type: string
+          description: The ID of the ad creative.
+      responses:
+        '204':
+          description: Ad creative deleted successfully.
+
+  /act_{ad_account_id}customaudiences:
+    get:
+      summary: Retrieve a list of custom audiences.
+      operationId: Get Custom Audiences
+      responses:
+        '200':
+          description: A list of custom audiences.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CustomAudience'
+    post:
+      summary: Create a new custom audience.
+      operationId: Create Custom Audience
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomAudienceCreate'
+      responses:
+        '201':
+          description: Custom audience created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomAudience'
+  /{custom_audience_id}:
+    delete:
+      summary: Delete a custom audience.
+      operationId: Delete Custom Audience
+      parameters:
+        - in: path
+          name: custom_audience_id
+          required: true
+          schema:
+            type: string
+          description: The ID of the custom audience.
+      responses:
+        '204':
+          description: Custom audience deleted successfully.
+    post:
+      summary: Update a custom audience.
+      operationId: Update Custom Audience
+      parameters:
+        - in: path
+          name: custom_audience_id
+          required: true
+          schema:
+            type: string
+          description: The ID of the custom audience.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomAudienceUpdate'
+      responses:
+        '200':
+          description: Custom audience updated successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomAudience'
   /act_{ad_account_id}/campaigns:
     get:
       tags:
@@ -645,6 +755,418 @@ paths:
                 $ref: '#/components/schemas/AdResponse'
 components:
   schemas:
+    CustomAudience:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the custom audience.
+        account_id:
+          type: string
+          description: The ID of the ad account that owns the custom audience.
+        approximate_count:
+          type: integer
+          description: Approximate number of users in the custom audience.
+        name:
+          type: string
+          description: Name of the custom audience.
+        description:
+          type: string
+          description: Description of the custom audience.
+        delivery_status:
+          $ref: '#/components/schemas/CustomAudienceStatus'
+          description: Delivery status of the custom audience.
+        subtype:
+          type: string
+          enum:
+            - CUSTOM
+            - WEBSITE
+            - APP
+            - OFFLINE_CONVERSION
+            - CLAIM
+            - PARTNER
+            - MANAGED
+            - VIDEO
+            - LOOKALIKE
+            - ENGAGEMENT
+            - BAG_OF_ACCOUNTS
+            - STUDY_RULE_AUDIENCE
+            - FOX
+          description: The subtype of the custom audience.
+        retention_days:
+          type: integer
+          description: The number of days to retain audience members.
+        rule:
+          type: string
+          description: A rule that defines this custom audience.
+        time_created:
+          type: string
+          format: date-time
+          description: The time the custom audience was created.
+        time_updated:
+          type: string
+          format: date-time
+          description: The time the custom audience was last updated.
+        operation_status:
+          $ref: '#/components/schemas/CustomAudienceStatus'
+          description: Operation status of the custom audience.
+      required:
+        - id
+        - name
+        - subtype
+    CustomAudienceCreate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the custom audience.
+        description:
+          type: string
+          description: Description of the custom audience.
+        subtype:
+          type: string
+          enum:
+            - CUSTOM
+            - WEBSITE
+            - APP
+            - OFFLINE_CONVERSION
+            - CLAIM
+            - PARTNER
+            - MANAGED
+            - VIDEO
+            - LOOKALIKE
+            - ENGAGEMENT
+            - BAG_OF_ACCOUNTS
+            - STUDY_RULE_AUDIENCE
+            - FOX
+          description: The subtype of the custom audience.
+        retention_days:
+          type: integer
+          description: The number of days to retain audience members.
+        rule:
+          type: string
+          description: A rule that defines this custom audience.
+        customer_file_source:
+          type: string
+          enum:
+            - USER_PROVIDED_ONLY
+            - PARTNER_PROVIDED_ONLY
+            - BOTH_USER_AND_PARTNER_PROVIDED
+          description: The origin of the customer data.
+      required:
+        - name
+        - subtype
+    CustomAudienceUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the custom audience.
+        description:
+          type: string
+          description: Description of the custom audience.
+        retention_days:
+          type: integer
+          description: The number of days to retain audience members.
+        rule:
+          type: string
+          description: A rule that defines this custom audience.
+        opt_out_link:
+          type: string
+          description: URL where users can opt out.
+      required: [ ]
+    CustomAudienceStatus:
+      type: object
+      properties:
+        code:
+          type: integer
+          description: Status code.
+        description:
+          type: string
+          description: Status description.
+    CustomAudienceAddUsers:
+      type: object
+      properties:
+        payload:
+          type: object
+          properties:
+            schema:
+              type: array
+              items:
+                type: string
+              description: The schema of the user data.
+            data:
+              type: array
+              items:
+                type: array
+                items:
+                  type: string
+              description: The user data to be added.
+            is_raw:
+              type: boolean
+              description: Indicates if the data is raw.
+      required:
+        - payload
+    AdCreative:
+      type: object
+      properties:
+        id:
+          type: string
+          description: The unique identifier of the ad creative.
+        account_id:
+          type: string
+          description: The ID of the ad account that owns the ad creative.
+        actor_id:
+          type: string
+          description: The ID of the actor for whom the ad is created.
+        body:
+          type: string
+          description: The message of the ad.
+        call_to_action_type:
+          type: string
+          enum:
+            - OPEN_LINK
+            - LIKE_PAGE
+            - SHOP_NOW
+            - PLAY_GAME
+            - INSTALL_APP
+            - USE_APP
+            - CALL
+            - APPLY_NOW
+            - BOOK_TRAVEL
+            - LISTEN_MUSIC
+            - WATCH_VIDEO
+            - LEARN_MORE
+            - SIGN_UP
+            - DOWNLOAD
+            - WATCH_MORE
+            - NO_BUTTON
+            - VISIT_PAGES_FEED
+            - MESSAGE_PAGE
+            - DONATE
+            - SUBSCRIBE
+            - SAY_THANKS
+            - SELL_NOW
+            - DONATE_NOW
+            - GET_DIRECTIONS
+            - MESSAGE_USER
+            - SEE_MENU
+            - EMAIL_NOW
+            - GET_SHOWTIMES
+            - TRY_IT
+            - CONTACT_US
+            - BUY_NOW
+            - GET_OFFER
+            - GET_OFFER_VIEW
+            - BUY_TICKETS
+            - UPDATE_APP
+            - GET_QUOTE
+            - CONTACT_US_NOW
+            - OPEN_MOVIES
+          description: Type of call to action.
+        image_url:
+          type: string
+          description: The URL of the image used in the ad creative.
+        name:
+          type: string
+          description: The name of the ad creative.
+        object_id:
+          type: string
+          description: The ID of the Facebook object (Page, App, etc.) being advertised.
+        object_story_spec:
+          $ref: '#/components/schemas/AdCreativeObjectStorySpec'
+          description: The object story specification for the ad creative.
+        status:
+          type: string
+          enum:
+            - ACTIVE
+            - DELETED
+          description: The status of the ad creative.
+        title:
+          type: string
+          description: The title of the ad.
+        url_tags:
+          type: string
+          description: The URL tags for tracking.
+      required:
+        - name
+        - object_story_spec
+      AdCreativeCreate:
+        type: object
+        properties:
+          name:
+            type: string
+            description: The name of the ad creative.
+          object_story_spec:
+            $ref: '#/components/schemas/AdCreativeObjectStorySpec'
+            description: The object story specification for the ad creative.
+          status:
+            type: string
+            enum:
+              - ACTIVE
+              - DELETED
+            description: The status of the ad creative.
+          call_to_action_type:
+            type: string
+            enum:
+              - OPEN_LINK
+              - LIKE_PAGE
+              - SHOP_NOW
+              - PLAY_GAME
+              - INSTALL_APP
+              - USE_APP
+              - CALL
+              - APPLY_NOW
+              - BOOK_TRAVEL
+              - LISTEN_MUSIC
+              - WATCH_VIDEO
+              - LEARN_MORE
+              - SIGN_UP
+              - DOWNLOAD
+              - WATCH_MORE
+              - NO_BUTTON
+              - VISIT_PAGES_FEED
+              - MESSAGE_PAGE
+              - DONATE
+              - SUBSCRIBE
+              - SAY_THANKS
+              - SELL_NOW
+              - DONATE_NOW
+              - GET_DIRECTIONS
+              - MESSAGE_USER
+              - SEE_MENU
+              - EMAIL_NOW
+              - GET_SHOWTIMES
+              - TRY_IT
+              - CONTACT_US
+              - BUY_NOW
+              - GET_OFFER
+              - GET_OFFER_VIEW
+              - BUY_TICKETS
+              - UPDATE_APP
+              - GET_QUOTE
+              - CONTACT_US_NOW
+              - OPEN_MOVIES
+            description: Type of call to action.
+          object_id:
+            type: string
+            description: The ID of the Facebook object (Page, App, etc.) being advertised.
+          image_url:
+            type: string
+            description: The URL of the image used in the ad creative.
+          title:
+            type: string
+            description: The title of the ad.
+          body:
+            type: string
+            description: The message of the ad.
+          url_tags:
+            type: string
+            description: The URL tags for tracking.
+        required:
+          - name
+          - object_story_spec
+      AdCreativeObjectStorySpec:
+        type: object
+        properties:
+          page_id:
+            type: string
+            description: The ID of the Facebook page.
+          link_data:
+            $ref: '#/components/schemas/AdCreativeLinkData'
+            description: Link data for the ad creative.
+          video_data:
+            $ref: '#/components/schemas/AdCreativeVideoData'
+            description: Video data for the ad creative.
+        required:
+          - page_id
+      AdCreativeLinkData:
+        type: object
+        properties:
+          link:
+            type: string
+            description: The URL that the ad links to.
+          message:
+            type: string
+            description: The message that appears in the ad.
+          caption:
+            type: string
+            description: The caption of the ad.
+          image_hash:
+            type: string
+            description: The image hash of the ad creative.
+          call_to_action:
+            $ref: '#/components/schemas/AdCreativeLinkDataCallToAction'
+            description: Call to action for the ad.
+        required:
+          - link
+      AdCreativeLinkDataCallToAction:
+        type: object
+        properties:
+          type:
+            type: string
+            enum:
+              - OPEN_LINK
+              - LIKE_PAGE
+              - SHOP_NOW
+              - PLAY_GAME
+              - INSTALL_APP
+              - USE_APP
+              - CALL
+              - APPLY_NOW
+              - BOOK_TRAVEL
+              - LISTEN_MUSIC
+              - WATCH_VIDEO
+              - LEARN_MORE
+              - SIGN_UP
+              - DOWNLOAD
+              - WATCH_MORE
+              - NO_BUTTON
+              - VISIT_PAGES_FEED
+              - MESSAGE_PAGE
+              - DONATE
+              - SUBSCRIBE
+              - SAY_THANKS
+              - SELL_NOW
+              - DONATE_NOW
+              - GET_DIRECTIONS
+              - MESSAGE_USER
+              - SEE_MENU
+              - EMAIL_NOW
+              - GET_SHOWTIMES
+              - TRY_IT
+              - CONTACT_US
+              - BUY_NOW
+              - GET_OFFER
+              - GET_OFFER_VIEW
+              - BUY_TICKETS
+              - UPDATE_APP
+              - GET_QUOTE
+              - CONTACT_US_NOW
+              - OPEN_MOVIES
+            description: Type of call to action.
+          value:
+            type: object
+            properties:
+              link:
+                type: string
+                description: The URL that the call to action button links to.
+        required:
+          - type
+      AdCreativeVideoData:
+        type: object
+        properties:
+          video_id:
+            type: string
+            description: The ID of the video used in the ad.
+          message:
+            type: string
+            description: The message that appears in the ad.
+          call_to_action:
+            $ref: '#/components/schemas/AdCreativeLinkDataCallToAction'
+            description: Call to action for the ad.
+        required:
+          - video_id
     AdList:
       type: object
       description: Ad list response
