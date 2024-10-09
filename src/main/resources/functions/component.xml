@@ -81,5 +81,17 @@
             <file>updateCampaign.xml</file>
             <description>Updates a campaign.</description>
         </component>
+        <component name="createAdCreative">
+            <file>createAdCreative.xml</file>
+            <description>Creates an ad creative.</description>
+        </component>
+        <component name="createCustomAudience">
+            <file>createCustomAudience.xml</file>
+            <description>Creates a custom audience.</description>
+        </component>
+        <component name="updateCustomAudience">
+            <file>updateCustomAudience.xml</file>
+            <description>Updates a custom audience.</description>
+        </component>
     </subComponents>
 </component>

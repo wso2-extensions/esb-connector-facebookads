@@ -9,7 +9,7 @@
       "project": {
         "groupId": "org.wso2.carbon.esb.connector",
         "artifactId": "facebook.ads",
-        "version": "1.0.0-SNAPSHOT"
+        "version": "1.0.1-SNAPSHOT"
       },
       "iconFolderPath": "",
       "mappers": {
@@ -77,6 +77,18 @@
           {
             "openapiOperationID": "Delete Ad",
             "connectorOperationName": "deleteAd"
+          },
+          {
+            "openapiOperationID": "Create Ad Creatives",
+            "connectorOperationName": "createAdCreative"
+          },
+          {
+            "openapiOperationID": "Create Custom Audience",
+            "connectorOperationName": "createCustomAudience"
+          },
+          {
+            "openapiOperationID": "Update Custom Audience",
+            "connectorOperationName": "updateCustomAudience"
           }
         ]
       }
