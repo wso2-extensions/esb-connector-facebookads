@@ -22,7 +22,7 @@ security:
   - ApiKeyAuth: [ ]
 paths:
   /act_{ad_account_id}/adcreatives:
-    get:
+    get: 
       summary: Retrieve a list of ad creatives.
       operationId: Get Ad Creatives
       responses:

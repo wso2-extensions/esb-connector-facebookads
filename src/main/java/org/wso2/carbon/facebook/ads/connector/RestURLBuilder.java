@@ -48,6 +48,7 @@ public class RestURLBuilder extends AbstractConnector {
         put("summary", "summary");
         put("objectCount", "object_count");
         put("adAccountId", "ad_account_id");
+        put("customAudienceId", "custom_audience_id");
         put("campaignId", "campaign_id");
         put("beforeDate", "before_date");
         put("updatedSince", "updated_since");
