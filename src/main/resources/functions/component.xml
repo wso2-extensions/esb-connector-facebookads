@@ -93,5 +93,13 @@
             <file>updateCustomAudience.xml</file>
             <description>Updates a custom audience.</description>
         </component>
+        <component name="addUsersToAudience">
+            <file>addUsersToAudience.xml</file>
+            <description>Add users to your Custom Audience.</description>
+        </component>
+        <component name="removeUsersFromAudience">
+            <file>removeUsersFromAudience.xml</file>
+            <description>Remove users from your Custom Audience.</description>
+        </component>
     </subComponents>
 </component>

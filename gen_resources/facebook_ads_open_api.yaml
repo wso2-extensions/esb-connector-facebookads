@@ -16,11 +16,13 @@ tags:
     description: A group of ads that share the same daily or lifetime budget, schedule, bid type, bid info, and targeting data.
   - name: Ad
     description: Contains information to display an ad and associate it with an ad set.
+  - name: Custom Audience
+    description: Manage custom audiences for ad targeting.
 security:
   - ApiKeyAuth: [ ]
 paths:
   /act_{ad_account_id}/adcreatives:
-    get:
+    get: 
       summary: Retrieve a list of ad creatives.
       operationId: Get Ad Creatives
       responses:
@@ -129,6 +131,57 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CustomAudience'
+  /{custom_audience_id}/users:
+    post:
+      tags:
+        - "Custom Audience"
+      summary: Add users to a custom audience.
+      operationId: Add Users to Custom Audience
+      parameters:
+        - in: path
+          name: custom_audience_id
+          required: true
+          schema:
+            type: string
+          description: The ID of the custom audience.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomAudienceUsersAdd'
+      responses:
+        '200':
+          description: Users added to custom audience successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomAudienceUsersResponse'
+    delete:
+      tags:
+        - "Custom Audience"
+      summary: Remove users from a custom audience.
+      operationId: Remove Users from Custom Audience
+      parameters:
+        - in: path
+          name: custom_audience_id
+          required: true
+          schema:
+            type: string
+          description: The ID of the custom audience.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CustomAudienceUsersRemove'
+      responses:
+        '200':
+          description: Users removed from custom audience successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomAudienceUsersResponse'
   /act_{ad_account_id}/campaigns:
     get:
       tags:
@@ -2366,6 +2419,110 @@ components:
         lifetime_budget:
           type: integer
           description: Lifetime budget
+    # New schema for adding users to a custom audience
+    CustomAudienceUsersAdd:
+      type: object
+      properties:
+        payload:
+          $ref: '#/components/schemas/CustomAudiencePayload'
+        session:
+          $ref: '#/components/schemas/CustomAudienceSession'
+        data_processing_options:
+          type: array
+          items:
+            type: string
+          description: Data processing options.
+        data_processing_options_country:
+          type: integer
+          description: Data processing options country code.
+        data_processing_options_state:
+          type: integer
+          description: Data processing options state code.
+      required:
+        - payload
+    CustomAudienceUsersRemove:
+      type: object
+      properties:
+        payload:
+          $ref: '#/components/schemas/CustomAudiencePayload'
+      required:
+        - payload
+    CustomAudienceUsersReplace:
+      type: object
+      properties:
+        payload:
+          $ref: '#/components/schemas/CustomAudiencePayload'
+        session:
+          $ref: '#/components/schemas/CustomAudienceSession'
+      required:
+        - payload
+        - session
+    CustomAudiencePayload:
+      type: object
+      properties:
+        schema:
+          oneOf:
+            - type: string
+            - type: array
+              items:
+                type: string
+          description: The schema of the user data. Can be a single string or an array of strings for multi-key matching.
+        data:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: The user data to be added or removed.
+        is_raw:
+          type: boolean
+          description: Indicates if the data is raw.
+        page_ids:
+          type: array
+          items:
+            type: string
+          description: List of page IDs when using PAGEUID.
+      required:
+        - schema
+        - data
+    CustomAudienceSession:
+      type: object
+      properties:
+        session_id:
+          type: integer
+          description: Identifier used to track the session.
+        batch_seq:
+          type: integer
+          description: Sequential number to identify the batch in the current session.
+        last_batch_flag:
+          type: boolean
+          description: Indicates if this is the last batch in the session.
+        estimated_num_total:
+          type: integer
+          description: Estimated total number of users to be uploaded in this session.
+      required:
+        - session_id
+        - batch_seq
+    CustomAudienceUsersResponse:
+      type: object
+      properties:
+        audience_id:
+          type: string
+          description: Audience identifier.
+        session_id:
+          type: integer
+          description: Session ID provided in the request.
+        num_received:
+          type: integer
+          description: Total number of users received in this session so far.
+        num_invalid_entries:
+          type: integer
+          description: Number of entries sent with incorrect hashing or invalid format.
+        invalid_entry_samples:
+          type: array
+          items:
+            type: string
+          description: Up to 100 samples of invalid entries found in the current request.
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
