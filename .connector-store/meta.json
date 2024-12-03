@@ -8,7 +8,7 @@
     "mavenArtifactId": "facebook.ads",
     "description": "The Facebook Ads Connector allows you to access the Facebook Marketing API. This lets you create, update, and delete ad campaigns and ads.",
     "status": "Active",
-    "connectorRank": 51,
+    "rank": 51,
     "type": "Connector",
     "releases": [
         {
