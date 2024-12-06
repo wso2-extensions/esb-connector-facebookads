@@ -1,7 +1,7 @@
 {
     "name": "Facebook Ads",
     "owner": "WSO2",
-    "product": "MI",
+    "hasProductMetadata": "true",
     "category": "Sales and Marketing",
     "documentationUrl": "https://mi.docs.wso2.com/en/latest/reference/connectors/facebook-ads-connector/facebook-ads-overview/",
     "mavenGroupId": "org.wso2.integration.connector",
