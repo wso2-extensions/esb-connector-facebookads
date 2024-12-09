@@ -22,8 +22,8 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <groupId>org.wso2.carbon.esb.connector</groupId>
-    <artifactId>facebook.ads</artifactId>
+    <groupId>org.wso2.integration.connector</groupId>
+    <artifactId>mi-connector-facebookads</artifactId>
     <version>1.0.2</version>
 
     <name>WSO2 Carbon - Facebook Ads Connector</name>
@@ -62,6 +62,13 @@
     </dependencies>
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <configuration>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
