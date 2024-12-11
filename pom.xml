@@ -24,7 +24,7 @@
 
     <groupId>org.wso2.integration.connector</groupId>
     <artifactId>mi-connector-facebookads</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
 
     <name>WSO2 Carbon - Facebook Ads Connector</name>
     <url>http://wso2.org</url>

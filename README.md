@@ -4,7 +4,7 @@
 
 | Connector Version | Supported WSO2 MI Version |
 |-------------------|---------------------------|
-| 1.0.2             | MI 4.3.0                  |
+| 1.0.3             | MI 4.3.0                  |
 
 
 ## Documentation

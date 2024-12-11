@@ -9,7 +9,7 @@
       "project": {
         "groupId": "org.wso2.carbon.esb.connector",
         "artifactId": "facebook.ads",
-        "version": "1.0.2-SNAPSHOT"
+        "version": "1.0.3-SNAPSHOT"
       },
       "iconFolderPath": "",
       "mappers": {
