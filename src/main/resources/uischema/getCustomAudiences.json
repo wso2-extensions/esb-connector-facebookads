@@ -1,0 +1,61 @@
+{
+  "connectorName": "facebookAds",
+  "operationName": "getCustomAudiences",
+  "title": "Get Custom Audiences",
+  "help": "Returns all the custom audiences.",
+  "elements": [
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "General",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "configRef",
+              "displayName": "Connection",
+              "inputType": "connection",
+              "allowedConnectionTypes": [
+                "facebookAds"
+              ],
+              "defaultType": "connection.facebookAds",
+              "defaultValue": "",
+              "required": "true",
+              "helpTip": "Connection to be used."
+            }
+          },
+          {
+            "type": "attributeGroup",
+            "value": {
+              "groupName": "Parameters",
+              "elements": [
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "adAccountId",
+                    "displayName": "Ad Account Id",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "",
+                    "required": "true",
+                    "helpTip": "ID of the ad account."
+                  }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "fields",
+                    "displayName": "Fields",
+                    "inputType": "stringOrExpression",
+                    "defaultValue": "name,id,operation_status,time_created,time_updated",
+                    "required": "false",
+                    "helpTip": "Fields of the audiences."
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
