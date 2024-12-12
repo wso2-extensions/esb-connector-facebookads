@@ -25,5 +25,6 @@
         <dependency component="functions"/>
         <description>WSO2 Facebook Ads Connector Library</description>
     </component>
+    <displayName>Facebook Ads</displayName>
     <icon>icon/icon-small.png</icon>
 </connector>
