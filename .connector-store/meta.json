@@ -130,6 +130,126 @@
                 }
             ],
             "isHidden": false
+        },
+        {
+            "tagName": "v1.0.2",
+            "products": [
+                "MI 4.3.0"
+            ],
+            "operations": [
+                {
+                    "name":"init",
+                    "description":"Config operation",
+                    "isHidden":true
+                },
+                {
+                    "name":"createAd",
+                    "description":"Create an ad.",
+                    "isHidden":false
+                },
+                {
+                    "name":"createAdSet",
+                    "description":"Creates an ad set.",
+                    "isHidden":false
+                },
+                {
+                    "name":"createCampaign",
+                    "description":"Create a campaign.",
+                    "isHidden":false
+                },
+                {
+                    "name":"deleteAd",
+                    "description":"Deletes an ad.",
+                    "isHidden":false
+                },
+                {
+                    "name":"deleteAdSet",
+                    "description":"Deletes an ad set.",
+                    "isHidden":false
+                },
+                {
+                    "name":"deleteCampaign",
+                    "description":"Deletes a campaign.",
+                    "isHidden":false
+                },
+                {
+                    "name":"dissociateCampaign",
+                    "description":"Dissociate a campaign from an AdAccount.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getAd",
+                    "description":"Returns data of an ad.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getAdSet",
+                    "description":"Return data related to an ad set.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getAdSets",
+                    "description":"Returns all ad sets from one ad account.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getAds",
+                    "description":"Returns ads under this ad account.",
+                    "isHidden":false
+                },
+                {
+                    "name":"getCampaigns",
+                    "description":"Returns campaigns under this ad account.",
+                    "isHidden":false
+                },
+                {
+                    "name":"updateAd",
+                    "description":"Updates an ad.",
+                    "isHidden":false
+                },
+                {
+                    "name":"updateAdSet",
+                    "description":"Updates an ad set.",
+                    "isHidden":false
+                },
+                {
+                    "name":"updateCampaign",
+                    "description":"Updates a campaign.",
+                    "isHidden":false
+                },
+                {
+                    "name":"createAdCreative",
+                    "description":"Creates an ad creative.",
+                    "isHidden":false
+                },
+                {
+                    "name":"createCustomAudience",
+                    "description":"Creates a custom audience.",
+                    "isHidden":false
+                },
+                {
+                    "name":"updateCustomAudience",
+                    "description":"Updates a custom audience.",
+                    "isHidden":false
+                },
+                {
+                    "name":"addUsersToAudience",
+                    "description":"Add users to your custom audience.",
+                    "isHidden":false
+                },
+                {
+                    "name":"removeUsersFromAudience",
+                    "description":"Remove users from your custom audience.",
+                    "isHidden":false
+                }
+            ],
+            "connections": [
+                {
+                    "name": "facebookAds",
+                    "description": "Connection for interacting with Facebook Ads."
+                }
+            ],
+            "isHidden": false
         }
     ],
     "labels": [
