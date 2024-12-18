@@ -25,7 +25,6 @@
     <groupId>org.wso2.integration.connector</groupId>
     <artifactId>mi-connector-facebookads</artifactId>
     <version>1.0.3</version>
-
     <name>WSO2 Carbon - Facebook Ads Connector</name>
     <url>http://wso2.org</url>
     <packaging>jar</packaging>
@@ -60,6 +59,12 @@
             <version>${com.google.code.gson.version}</version>
         </dependency>
     </dependencies>
+    <scm>
+        <connection>scm:git:https://github.com/wso2-extensions/esb-connector-facebookads.git</connection>
+        <url>https://github.com/wso2-extensions/esb-connector-facebookads.git</url>
+        <developerConnection>scm:git:https://github.com/wso2-extensions/esb-connector-facebookads</developerConnection>
+        <tag>HEAD</tag>
+    </scm>
     <build>
         <plugins>
             <plugin>
