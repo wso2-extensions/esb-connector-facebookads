@@ -21,20 +21,22 @@
 <template xmlns="http://ws.apache.org/ns/synapse" name="getCustomAudiences">
     <!-- Path Parameter List -->
     <parameter name="adAccountId" description="ID of the ad account."/>
-    <parameter name="fields" description="Fields of the audience"/>
+    <parameter name="filterByName" description="Name of the audience to filter by name."/>
     <sequence>
         <class name="org.wso2.carbon.facebook.ads.connector.RestURLBuilder">
             <property name="operationPath" value="/act_{ad_account_id}/customaudiences"/>
             <property name="pathParameters" value="adAccountId,"/>
-            <property name="queryParameters" value="fields,"/>
         </class>
         <header name="Accept" value="application/json" scope="transport" action="set"/>
+        <header name="Accept-Encoding" value="gzip" scope="transport" action="set"/>
+
         <call>
             <endpoint>
-                <http method="GET" uri-template="{uri.var.base}{+uri.var.urlPath}{+uri.var.urlQuery}"/>
+                <http method="GET" uri-template="{uri.var.base}{+uri.var.urlPath}{+uri.var.urlQuery}&amp;fields=id,name,description,account_id,subtype,size,usage,delivery_status,lookalike_spec,rule,pixel_id,data_source,creation_time,update_time,is_restricted,can_create_lookalike,customer_file_source,retention_days,origin,country,ratio,targeting"/>
             </endpoint>
         </call>
-        <!-- Remove custom header information -->
+        <class name="org.wso2.carbon.facebook.ads.connector.FilterAudiencesByNameMediator"/>
+
         <header name="x-business-use-case-usage" scope="transport" action="remove"/>
         <header name="facebook-api-version" scope="transport" action="remove"/>
         <header name="Strict-Transport-Security" scope="transport" action="remove"/>

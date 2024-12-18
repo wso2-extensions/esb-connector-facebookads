@@ -19,9 +19,7 @@
 <!-- Generated on 16-Wed, 10, 2024 19:59:26+0530 -->
 
 <template xmlns="http://ws.apache.org/ns/synapse" name="removeUsersFromAudience">
-    <!-- Path Parameter List -->
     <parameter name="customAudienceId" description="The ID of the custom audience."/>
-    <!-- Request Body Parameter List -->
     <parameter name="properties" description="Custom audience users properties."/>
     <sequence>
         <class name="org.wso2.carbon.facebook.ads.connector.FacebookDataClassMediator"/>
@@ -31,12 +29,6 @@
             <property name="pathParameters" value="customAudienceId,"/>
         </class>
 
-        <!-- Log the hashed payload right after hashing is done -->
-        <log level="full">
-            <property name="hashed-payload" expression="get-property('HASHED_PAYLOAD')"/>
-        </log>
-
-        <!-- Construct the final payload using the payload factory -->
         <payloadFactory media-type="json" template-type="freemarker">
             <format><![CDATA[
 ${args.arg1}
@@ -45,11 +37,6 @@ ${args.arg1}
                 <arg evaluator="xml" expression="get-property('HASHED_PAYLOAD')"/>
             </args>
         </payloadFactory>
-
-        <!-- Log again after the payload factory to confirm the final message body -->
-        <log level="full">
-            <property name="final-payload" expression="json-eval($.)"/>
-        </log>
 
         <property name="DISABLE_CHUNKING" scope="axis2" type="STRING" value="true"/>
         <property name="messageType" value="application/json" scope="axis2"/>

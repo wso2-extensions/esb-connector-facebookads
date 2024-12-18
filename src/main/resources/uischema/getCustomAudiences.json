@@ -43,12 +43,12 @@
                 {
                   "type": "attribute",
                   "value": {
-                    "name": "fields",
-                    "displayName": "Fields",
+                    "name": "filterByName",
+                    "displayName": "Filter by name",
                     "inputType": "stringOrExpression",
-                    "defaultValue": "name,id,operation_status,time_created,time_updated",
+                    "defaultValue": "",
                     "required": "false",
-                    "helpTip": "Fields of the audiences."
+                    "helpTip": "Name of the audience to filter by name."
                   }
                 }
               ]

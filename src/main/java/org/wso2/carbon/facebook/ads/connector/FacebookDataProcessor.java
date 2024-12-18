@@ -1,3 +1,21 @@
+/*
+ *  Copyright (c) 2024, WSO2 LLC. (https://www.wso2.com).
+ *
+ *  WSO2 LLC. licenses this file to you under the Apache License,
+ *  Version 2.0 (the "License"); you may not use this file except
+ *  in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing,
+ *  software distributed under the License is distributed on an
+ *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ *  KIND, either express or implied.  See the License for the
+ *  specific language governing permissions and limitations
+ *  under the License.
+ */
+
 package org.wso2.carbon.facebook.ads.connector;
 
 import java.security.MessageDigest;
@@ -7,6 +25,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.synapse.SynapseException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.apache.commons.logging.Log;
@@ -96,6 +115,7 @@ class FacebookDataProcessor {
         US_STATE_MAP.put("wyoming", "wy");
         US_STATE_MAP.put("district of columbia", "dc");
 
+        // If the country is not present here, default to lowercase
         COUNTRY_MAP.put("unitedstates", "us");
         COUNTRY_MAP.put("us", "us");
         COUNTRY_MAP.put("unitedkingdom", "gb");
@@ -161,7 +181,6 @@ class FacebookDataProcessor {
                 String finalValue = normalized.isEmpty() ? "" : (requiresHashing(field) ? hashIfNotAlreadyHashed(normalized) : normalized);
                 dataRow.put(finalValue);
             }
-
             dataArray.put(dataRow);
         }
 
@@ -200,7 +219,7 @@ class FacebookDataProcessor {
                     externIdFields.add(key);
                 }
             }
-            // Sort them to ensure deterministic order (by base key and numeric index)
+            // Sort them
             externIdFields.sort((a, b) -> {
                 String baseA = a.replaceAll("\\.\\d+", "");
                 String baseB = b.replaceAll("\\.\\d+", "");
@@ -251,7 +270,8 @@ class FacebookDataProcessor {
             try {
                 return Integer.parseInt(m.group(1));
             } catch (NumberFormatException e) {
-                // ignore
+                log.error("Error occurred while getting suffix index: ", e);
+                throw new SynapseException("Error occurred while getting suffix index: " + e.getMessage(), e);
             }
         }
         return 0;
@@ -276,12 +296,6 @@ class FacebookDataProcessor {
                 !fieldName.equalsIgnoreCase("PAGE_SCOPED_USER_ID");
     }
 
-    private static void printNormalization(String fieldName, String originalValue, String normalizedValue) {
-        System.out.println("Normalizing field: " + fieldName);
-        System.out.println("original = " + originalValue);
-        System.out.println("normalized = " + normalizedValue);
-    }
-
     private static Map<String, String> parsePhoneMeta(String val) {
         Map<String, String> meta = new HashMap<>();
         Pattern p = Pattern.compile("(alreadyHasPhoneCode|countryCode|phoneCode|phoneNumber)\\s*:\\s*([^;]+)");
@@ -299,6 +313,7 @@ class FacebookDataProcessor {
         return meta;
     }
 
+    // Normalize phone numbers
     private static String normalizePhone(String val, String country) {
         Map<String, String> meta = parsePhoneMeta(val);
         if (meta.isEmpty()) {
@@ -341,15 +356,16 @@ class FacebookDataProcessor {
                     }
                 }
             }
-
             return phoneNumber;
         }
     }
 
+    // Normalize the cities
     private static String normalizeCity(String val) {
         return val.replaceAll("[^a-z]", "");
     }
 
+    // Normalize the states
     private static String normalizeState(String val, String country) {
         String clean = val.replaceAll("[^a-z]", "");
         if ("us".equalsIgnoreCase(country)) {
@@ -364,6 +380,7 @@ class FacebookDataProcessor {
         return clean;
     }
 
+    // Normalize the gender
     private static String normalizeGender(String val) {
         Set<String> maleSynonyms = new HashSet<>(Arrays.asList("m", "male", "man", "boy"));
         Set<String> femaleSynonyms = new HashSet<>(Arrays.asList("f", "female", "woman", "girl"));
@@ -376,6 +393,7 @@ class FacebookDataProcessor {
         return "m";
     }
 
+    // Normalize the countries
     private static String normalizeCountry(String val) {
         val = val.replaceAll("[^a-z]", "");
         String countryCode = COUNTRY_MAP.get(val);
@@ -385,6 +403,7 @@ class FacebookDataProcessor {
         return val;
     }
 
+    // Normalize the dob
     private static String parseDOBToYYYYMMDD(String val) {
         String[] parts = val.split("[/\\-–]+");
         if (parts.length < 3) {
@@ -481,27 +500,21 @@ class FacebookDataProcessor {
 
     private static String normalizeField(String fieldName, String value, String country) {
         if (value == null) {
-            printNormalization(fieldName, "null", "");
             return "";
         }
-
-        String originalValue = value;
         String val = value.trim().toLowerCase();
 
         switch (fieldName) {
             case "EMAIL":
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "PHONE":
                 val = normalizePhone(val, country);
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "FN":
             case "LN":
                 val = val.replaceAll("[^\\p{L}]", "");
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "ZIP":
@@ -512,51 +525,41 @@ class FacebookDataProcessor {
                         val = val.substring(0, 5);
                     }
                 }
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "CT":
                 val = normalizeCity(val);
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "ST":
                 val = normalizeState(val, country);
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "COUNTRY":
                 val = normalizeCountry(val);
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "DOB":
                 val = normalizeDOB(val);
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "DOBY":
                 val = normalizeDOBY(val);
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "DOBM":
                 val = normalizeDOBM(val);
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "DOBD":
                 val = normalizeDOBD(val);
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             case "GEN":
                 val = normalizeGender(val);
-                printNormalization(fieldName, originalValue, val);
                 return val;
 
             default:
-                printNormalization(fieldName, originalValue, val);
                 return val;
         }
     }
@@ -568,7 +571,7 @@ class FacebookDataProcessor {
             byte[] encodedhash = digest.digest(input.getBytes(StandardCharsets.UTF_8));
             return bytesToHex(encodedhash);
         } catch (NoSuchAlgorithmException e) {
-            log.error("Error hashing string", e);
+            log.error("Error hashing string: " + input, e);
             return "";
         }
     }
@@ -588,9 +591,5 @@ class FacebookDataProcessor {
             return input;
         }
         return hashString(input);
-    }
-
-    static void unhashAndPrintFinalPayload(JSONObject finalObj) {
-        System.out.println(finalObj.toString(4));
     }
 }

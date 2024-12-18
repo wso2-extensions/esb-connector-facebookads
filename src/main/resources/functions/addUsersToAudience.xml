@@ -28,13 +28,6 @@
             <property name="operationPath" value="/{custom_audience_id}/users"/>
             <property name="pathParameters" value="customAudienceId,"/>
         </class>
-
-        <!-- Log the hashed payload right after hashing is done -->
-        <log level="full">
-            <property name="hashed-payload" expression="get-property('HASHED_PAYLOAD')"/>
-        </log>
-
-        <!-- Construct the final payload using the payload factory -->
         <payloadFactory media-type="json" template-type="freemarker">
             <format><![CDATA[
 ${args.arg1}
@@ -43,11 +36,6 @@ ${args.arg1}
                 <arg evaluator="xml" expression="get-property('HASHED_PAYLOAD')"/>
             </args>
         </payloadFactory>
-
-        <!-- Log again after the payload factory to confirm the final message body -->
-        <log level="full">
-            <property name="final-payload" expression="json-eval($.)"/>
-        </log>
 
         <property name="DISABLE_CHUNKING" scope="axis2" type="STRING" value="true"/>
         <property name="messageType" value="application/json" scope="axis2"/>
