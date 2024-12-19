@@ -36,6 +36,7 @@ public class FilterAudiencesByNameMediator extends AbstractMediator {
     public static final String FILTER_BY_NAME = "filterByName";
     public static final String DATA = "data";
     public static final String PAGING = "paging";
+    public static final String NAME = "name";
 
     @Override
     public boolean mediate(MessageContext synCtx) {
@@ -61,7 +62,7 @@ public class FilterAudiencesByNameMediator extends AbstractMediator {
                 for (JsonElement element : dataArray) {
                     if (element.isJsonObject()) {
                         JsonObject dataObj = element.getAsJsonObject();
-                        JsonElement nameElement = dataObj.get("name");
+                        JsonElement nameElement = dataObj.get(NAME);
                         if (nameElement != null && nameElement.isJsonPrimitive()) {
                             String name = nameElement.getAsString();
                             if (name.contains(filterByName)) {

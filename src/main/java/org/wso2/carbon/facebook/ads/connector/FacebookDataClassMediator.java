@@ -26,10 +26,23 @@ import org.json.JSONObject;
 
 public class FacebookDataClassMediator extends AbstractMediator {
     public static final String PROPERTIES = "properties";
+    public static final String INPUT_STRUCTURE = "inputStructure";
+    public static final String FACEBOOK_API_COMPATIBLE = "FACEBOOK_API_COMPATIBLE";
 
     @Override
     public boolean mediate(MessageContext synCtx) {
+        String inputStructure = (String) ConnectorUtils.lookupTemplateParamater(synCtx, INPUT_STRUCTURE);
         String jsonString = (String) ConnectorUtils.lookupTemplateParamater(synCtx, PROPERTIES);
+
+        // set the payload as it is for FACEBOOK_API_COMPATIBLE input structure
+        // executes if the inputStructure is not given or is empty too
+        if (FACEBOOK_API_COMPATIBLE.equals(inputStructure)
+                || inputStructure == null
+                || inputStructure.trim().isEmpty()) {
+            synCtx.setProperty(Constants.HASHED_PAYLOAD, jsonString);
+            return true;
+        }
+
         if (jsonString == null || jsonString.isEmpty()) {
             return true;
         }
