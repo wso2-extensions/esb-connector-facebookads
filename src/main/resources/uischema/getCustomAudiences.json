@@ -44,7 +44,7 @@
                   "type": "attribute",
                   "value": {
                     "name": "filterByName",
-                    "displayName": "Filter by name",
+                    "displayName": "Filter By Name",
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "false",

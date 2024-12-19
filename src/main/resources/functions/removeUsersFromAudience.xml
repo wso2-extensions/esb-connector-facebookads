@@ -19,7 +19,9 @@
 <!-- Generated on 16-Wed, 10, 2024 19:59:26+0530 -->
 
 <template xmlns="http://ws.apache.org/ns/synapse" name="removeUsersFromAudience">
+    <!-- Path Parameter List -->
     <parameter name="customAudienceId" description="The ID of the custom audience."/>
+    <!-- Request Body Parameter List -->
     <parameter name="properties" description="Custom audience users properties."/>
     <sequence>
         <class name="org.wso2.carbon.facebook.ads.connector.FacebookDataClassMediator"/>
@@ -49,6 +51,7 @@ ${args.arg1}
             </endpoint>
         </call>
 
+        <!-- Remove custom header information -->
         <header name="x-business-use-case-usage" scope="transport" action="remove"/>
         <header name="facebook-api-version" scope="transport" action="remove"/>
         <header name="Strict-Transport-Security" scope="transport" action="remove"/>
