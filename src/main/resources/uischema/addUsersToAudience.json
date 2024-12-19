@@ -50,6 +50,18 @@
                     "required": "true",
                     "helpTip": "Custom audience users properties."
                   }
+                },
+                {
+                  "type": "attribute",
+                  "value": {
+                    "name": "inputStructure",
+                    "displayName": "Input Data Structure",
+                    "inputType": "comboOrExpression",
+                    "comboValues": ["FACEBOOK_API_COMPATIBLE", "JSON_ARRAY"],
+                    "defaultValue": "JSON_ARRAY",
+                    "required": "false",
+                    "helpTip": "Structure of the user data to be added."
+                  }
                 }
               ]
             }

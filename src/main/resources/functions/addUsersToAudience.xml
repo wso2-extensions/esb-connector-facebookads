@@ -23,6 +23,7 @@
     <parameter name="customAudienceId" description="The ID of the custom audience."/>
     <!-- Request Body Parameter List -->
     <parameter name="properties" description="Custom audience users properties."/>
+    <parameter name="inputStructure" description="The structure of the input data."/>
     <sequence>
         <class name="org.wso2.carbon.facebook.ads.connector.FacebookDataClassMediator"/>
 
