@@ -1,8 +1,8 @@
 {
   "connectorName": "facebookAds",
-  "operationName": "addUsersToAudience",
-  "title": "Add Users To Custom Audience",
-  "help": "This is Add Users to Custom Audience operation.",
+  "operationName": "getCustomAudiences",
+  "title": "Get Custom Audiences",
+  "help": "Returns all the custom audiences.",
   "elements": [
     {
       "type": "attributeGroup",
@@ -32,35 +32,23 @@
                 {
                   "type": "attribute",
                   "value": {
-                    "name": "customAudienceId",
-                    "displayName": "Custom Audience Id",
+                    "name": "adAccountId",
+                    "displayName": "Ad Account Id",
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
                     "required": "true",
-                    "helpTip": "ID of the custom audience."
+                    "helpTip": "ID of the ad account."
                   }
                 },
                 {
                   "type": "attribute",
                   "value": {
-                    "name": "properties",
-                    "displayName": "Properties",
+                    "name": "filterByName",
+                    "displayName": "Filter By Name",
                     "inputType": "stringOrExpression",
                     "defaultValue": "",
-                    "required": "true",
-                    "helpTip": "Custom audience users properties."
-                  }
-                },
-                {
-                  "type": "attribute",
-                  "value": {
-                    "name": "inputStructure",
-                    "displayName": "Input Data Structure",
-                    "inputType": "comboOrExpression",
-                    "comboValues": ["FACEBOOK_API_COMPATIBLE", "JSON_ARRAY"],
-                    "defaultValue": "JSON_ARRAY",
                     "required": "false",
-                    "helpTip": "Structure of the user data to be added."
+                    "helpTip": "Name of the audience to filter by name."
                   }
                 }
               ]
