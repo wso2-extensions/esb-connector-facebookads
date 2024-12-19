@@ -21,6 +21,7 @@ package org.wso2.carbon.facebook.ads.connector;
 public class Constants {
 
     public static final String PROPERTY_ACCESS_TOKEN = "_FB_ACCESS_TOKEN_";
+    public static final String HASHED_PAYLOAD = "HASHED_PAYLOAD";
     public static final String ACCESS_TOKEN = "access_token";
     public static final String PROPERTY_ERROR_CODE = "ERROR_CODE";
     public static final String PROPERTY_ERROR_MESSAGE = "ERROR_MESSAGE";
