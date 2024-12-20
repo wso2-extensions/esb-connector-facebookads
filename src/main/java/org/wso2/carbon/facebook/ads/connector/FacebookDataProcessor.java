@@ -128,6 +128,7 @@ class FacebookDataProcessor {
 
     static JSONObject processData(JSONArray inputArray) {
         Map<String, Integer> fieldCounts = new HashMap<>();
+        Set<String> unsupportedFields = new HashSet<>();
 
         // Determine maximum occurrences of each field
         for (int i = 0; i < inputArray.length(); i++) {
@@ -145,7 +146,10 @@ class FacebookDataProcessor {
                     int keyCount = countOccurrences(entry, key);
                     fieldCounts.put(mappedKey, Math.max(currentMax, keyCount));
                 } else {
-                    log.warn("Ignoring unsupported PII type: " + key);
+                    if (!unsupportedFields.contains(key)) {
+                        log.info("Ignoring unsupported PII type: " + key);
+                        unsupportedFields.add(key);
+                    }
                 }
             }
         }
