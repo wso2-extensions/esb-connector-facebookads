@@ -101,5 +101,9 @@
             <file>removeUsersFromAudience.xml</file>
             <description>Remove users from your Custom Audience.</description>
         </component>
+        <component name="getCustomAudiences">
+            <file>getCustomAudiences.xml</file>
+            <description>Returns all custom audiences.</description>
+        </component>
     </subComponents>
 </component>

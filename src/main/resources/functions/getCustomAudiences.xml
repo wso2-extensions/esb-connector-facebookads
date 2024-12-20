@@ -16,42 +16,27 @@
  ~  under the License.
 -->
 
-<!-- Generated on 16-Wed, 10, 2024 19:59:26+0530 -->
+<!-- Generated on 10-Tue, 09, 2024 08:13:26+0530 -->
 
-<template xmlns="http://ws.apache.org/ns/synapse" name="addUsersToAudience">
+<template xmlns="http://ws.apache.org/ns/synapse" name="getCustomAudiences">
     <!-- Path Parameter List -->
-    <parameter name="customAudienceId" description="The ID of the custom audience."/>
-    <!-- Request Body Parameter List -->
-    <parameter name="properties" description="Custom audience users properties."/>
-    <parameter name="inputStructure" description="The structure of the input data."/>
+    <parameter name="adAccountId" description="ID of the ad account."/>
+    <parameter name="filterByName" description="Name of the audience to filter by name."/>
     <sequence>
-        <class name="org.wso2.carbon.facebook.ads.connector.FacebookDataClassMediator"/>
-
         <class name="org.wso2.carbon.facebook.ads.connector.RestURLBuilder">
-            <property name="operationPath" value="/{custom_audience_id}/users"/>
-            <property name="pathParameters" value="customAudienceId,"/>
+            <property name="operationPath" value="/act_{ad_account_id}/customaudiences"/>
+            <property name="pathParameters" value="adAccountId,"/>
         </class>
-        <payloadFactory media-type="json" template-type="freemarker">
-            <format><![CDATA[
-${args.arg1}
-            ]]></format>
-            <args>
-                <arg evaluator="xml" expression="get-property('HASHED_PAYLOAD')"/>
-            </args>
-        </payloadFactory>
-
-        <property name="DISABLE_CHUNKING" scope="axis2" type="STRING" value="true"/>
-        <property name="messageType" value="application/json" scope="axis2"/>
-        <property name="ContentType" value="application/json" scope="axis2"/>
         <header name="Accept" value="application/json" scope="transport" action="set"/>
+        <header name="Accept-Encoding" value="gzip" scope="transport" action="set"/>
 
         <call>
             <endpoint>
-                <http method="POST" uri-template="{uri.var.base}{+uri.var.urlPath}{+uri.var.urlQuery}"/>
+                <http method="GET" uri-template="{uri.var.base}{+uri.var.urlPath}{+uri.var.urlQuery}&amp;fields=id,name,description,account_id,subtype,size,usage,delivery_status,lookalike_spec,rule,pixel_id,data_source,creation_time,update_time,is_restricted,can_create_lookalike,customer_file_source,retention_days,origin,country,ratio,targeting"/>
             </endpoint>
         </call>
+        <class name="org.wso2.carbon.facebook.ads.connector.FilterAudiencesByNameMediator"/>
 
-        <!-- Remove custom header information -->
         <header name="x-business-use-case-usage" scope="transport" action="remove"/>
         <header name="facebook-api-version" scope="transport" action="remove"/>
         <header name="Strict-Transport-Security" scope="transport" action="remove"/>
