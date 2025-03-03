@@ -26,5 +26,15 @@
             <description>Init configuration file for facebookAds connector.</description>
             <hidden>true</hidden>
         </component>
+        <component name="testconnection">
+            <file>testconnection.xml</file>
+            <description>Operation to test the connection for facebookAds connector.</description>
+            <hidden>true</hidden>
+        </component>
+        <component name="callOptions">
+            <file>callOptions.xml</file>
+            <hidden>true</hidden>
+            <description>Util template to call the endpoint</description>
+        </component>
     </subComponents>
 </component>

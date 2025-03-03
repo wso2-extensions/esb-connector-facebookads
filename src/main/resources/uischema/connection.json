@@ -3,6 +3,7 @@
   "connectionName": "facebookAds",
   "title": "Facebook Ad Connection",
   "help": "Facebook Ad Connection",
+  "testConnectionEnabled": true,
   "elements": [
     {
       "type": "attribute",
@@ -49,6 +50,25 @@
                   }
                 }
               ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "attributeGroup",
+      "value": {
+        "groupName": "Advanced",
+        "elements": [
+          {
+            "type": "attribute",
+            "value": {
+              "name": "blocking",
+              "displayName": "Use Blocking Transport",
+              "inputType": "checkbox",
+              "defaultValue": false,
+              "required": "false",
+              "helpTip": "Use blocking transport for the operation."
             }
           }
         ]
