@@ -22,6 +22,8 @@
     <!-- Path Parameter List -->
     <parameter name="adAccountId" description="ID of the ad account."/>
     <parameter name="filterByName" description="Name of the audience to filter by name."/>
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
     <sequence>
         <class name="org.wso2.carbon.facebook.ads.connector.RestURLBuilder">
             <property name="operationPath" value="/act_{ad_account_id}/customaudiences"/>
