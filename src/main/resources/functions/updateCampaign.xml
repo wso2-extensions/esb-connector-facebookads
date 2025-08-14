@@ -23,6 +23,8 @@
     <parameter name="campaignId" description="ID of the campaign."/>
     <!-- Query Parameter List -->
     <parameter name="properties" description="Campaign update properties"/>
+    <parameter name="responseVariable" description="The name of the variable to which the response should be stored."/>
+    <parameter name="overwriteBody" description="Replace the Message Body in Message Context with the response of the operation."/>
     <sequence>
         <class name="org.wso2.carbon.facebook.ads.connector.RestURLBuilder">
             <property name="operationPath" value="/{campaign_id}"/>
