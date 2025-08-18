@@ -18,123 +18,875 @@
             ],
             "operations": [
                 {
-                    "name": "init",
-                    "description": "Config operation",
-                    "isHidden": true
-                },
-                {
-                    "name": "createAd",
-                    "description": "Create an ad.",
-                    "isHidden": false
-                },
-                {
-                    "name": "createAdSet",
-                    "description": "Creates an ad set.",
+                    "name": "updateAdSet",
+                    "description": "Update Ad Set",
+                    "params": [
+                        {
+                            "name": "adSetId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad set."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Ad set update properties."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
                     "isHidden": false
                 },
                 {
                     "name": "createCampaign",
-                    "description": "Create a campaign.",
-                    "isHidden": false
-                },
-                {
-                    "name": "deleteAd",
-                    "description": "Deletes an ad.",
-                    "isHidden": false
-                },
-                {
-                    "name": "deleteAdSet",
-                    "description": "Deletes an ad set.",
-                    "isHidden": false
-                },
-                {
-                    "name": "deleteCampaign",
-                    "description": "Deletes a campaign.",
-                    "isHidden": false
-                },
-                {
-                    "name": "dissociateCampaign",
-                    "description": "Dissociate a campaign from an AdAccount.",
-                    "isHidden": false
-                },
-                {
-                    "name": "getAd",
-                    "description": "Returns data of an ad.",
-                    "isHidden": false
-                },
-                {
-                    "name": "getAdSet",
-                    "description": "Return data related to an ad set.",
-                    "isHidden": false
-                },
-                {
-                    "name": "getAdSets",
-                    "description": "Returns all ad sets from one ad account.",
-                    "isHidden": false
-                },
-                {
-                    "name": "getAds",
-                    "description": "Returns ads under this ad account.",
+                    "description": "Create Campaign",
+                    "params": [
+                        {
+                            "name": "adAccountId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad account."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Campaign properties."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
                     "isHidden": false
                 },
                 {
                     "name": "getCampaigns",
-                    "description": "Returns campaigns under this ad account.",
-                    "isHidden": false
-                },
-                {
-                    "name": "updateAd",
-                    "description": "Updates an ad.",
-                    "isHidden": false
-                },
-                {
-                    "name": "updateAdSet",
-                    "description": "Updates an ad set.",
-                    "isHidden": false
-                },
-                {
-                    "name": "updateCampaign",
-                    "description": "Updates a campaign.",
-                    "isHidden": false
-                },
-                {
-                    "name": "createAdCreative",
-                    "description": "Creates an ad creative.",
-                    "isHidden": false
-                },
-                {
-                    "name": "createCustomAudience",
-                    "description": "Creates a custom audience.",
-                    "isHidden": false
-                },
-                {
-                    "name": "updateCustomAudience",
-                    "description": "Updates a custom audience.",
-                    "isHidden": false
-                },
-                {
-                    "name": "addUsersToAudience",
-                    "description": "Add users to your custom audience.",
-                    "isHidden": false
-                },
-                {
-                    "name": "removeUsersFromAudience",
-                    "description": "Remove users from your custom audience.",
+                    "description": "Get Campaigns",
+                    "params": [
+                        {
+                            "name": "adAccountId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad account."
+                        },
+                        {
+                            "name": "datePreset",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Predefined date range used to aggregate insights metrics."
+                        },
+                        {
+                            "name": "effectiveStatus",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Effective status for the campaigns."
+                        },
+                        {
+                            "name": "isCompleted",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "If true, we return completed campaigns."
+                        },
+                        {
+                            "name": "timeRange",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Date range used to aggregate insights metrics."
+                        },
+                        {
+                            "name": "fields",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Fields of the campaign."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
                     "isHidden": false
                 },
                 {
                     "name": "getCustomAudiences",
-                    "description": "Returns all the custom audiences.",
+                    "description": "Get Custom Audiences",
+                    "params": [
+                        {
+                            "name": "adAccountId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad account."
+                        },
+                        {
+                            "name": "filterByName",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Name of the audience to filter by name."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "updateCustomAudience",
+                    "description": "Update Custom Audience",
+                    "params": [
+                        {
+                            "name": "customAudienceId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad set."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Custom audience update properties."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "dissociateCampaign",
+                    "description": "Dissociate Campaign",
+                    "params": [
+                        {
+                            "name": "adAccountId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad account."
+                        },
+                        {
+                            "name": "deleteStrategy",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Delete strategy."
+                        },
+                        {
+                            "name": "beforeDate",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Set a before date to delete campaigns before this date."
+                        },
+                        {
+                            "name": "objectCount",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Object count."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "getAd",
+                    "description": "Get Ad",
+                    "params": [
+                        {
+                            "name": "adId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad."
+                        },
+                        {
+                            "name": "datePreset",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Predefined date range used to aggregate insights metrics."
+                        },
+                        {
+                            "name": "timeRange",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Date range used to aggregate insights metrics."
+                        },
+                        {
+                            "name": "fields",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Fields of the Ad."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "getAdSets",
+                    "description": "Get Ad Sets",
+                    "params": [
+                        {
+                            "name": "adAccountId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad account."
+                        },
+                        {
+                            "name": "datePreset",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Predefined date range used to aggregate insights metrics."
+                        },
+                        {
+                            "name": "timeRange",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Time Range. Note if time range is invalid, it will be ignored."
+                        },
+                        {
+                            "name": "fields",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Fields of the ad set."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "addUsersToAudience",
+                    "description": "Add Users To Custom Audience",
+                    "params": [
+                        {
+                            "name": "customAudienceId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the custom audience."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Custom audience users properties."
+                        },
+                        {
+                            "name": "inputStructure",
+                            "type": "comboOrExpression",
+                            "required": false,
+                            "defaultValue": "JSON_ARRAY",
+                            "description": "Structure of the user data to be added."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "createAd",
+                    "description": "Create Ad",
+                    "params": [
+                        {
+                            "name": "adAccountId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad account."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Ad properties."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "updateAd",
+                    "description": "Update Ad",
+                    "params": [
+                        {
+                            "name": "adId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Ad set update properties."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "removeUsersFromAudience",
+                    "description": "Remove Users From Custom Audience",
+                    "params": [
+                        {
+                            "name": "customAudienceId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad set."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Custom audience users update properties."
+                        },
+                        {
+                            "name": "inputStructure",
+                            "type": "comboOrExpression",
+                            "required": false,
+                            "defaultValue": "JSON_ARRAY",
+                            "description": "Structure of the user data to be removed."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "deleteCampaign",
+                    "description": "Delete Campaign",
+                    "params": [
+                        {
+                            "name": "campaignId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the campaign."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "createCustomAudience",
+                    "description": "Create Custom Audience",
+                    "params": [
+                        {
+                            "name": "adAccountId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad account."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Custom audience properties."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "getAdSet",
+                    "description": "Get Ad Set",
+                    "params": [
+                        {
+                            "name": "adSetId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad set."
+                        },
+                        {
+                            "name": "datePreset",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Predefined date range used to aggregate insights metrics."
+                        },
+                        {
+                            "name": "timeRange",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Time Range. Note if time range is invalid, it will be ignored."
+                        },
+                        {
+                            "name": "fields",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Fields of the ad set."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "updateCampaign",
+                    "description": "Update Campaign",
+                    "params": [
+                        {
+                            "name": "campaignId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the campaign."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Campaign update properties."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "createAdCreative",
+                    "description": "Create Ad Creative",
+                    "params": [
+                        {
+                            "name": "adAccountId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad account."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Ad creative properties."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "deleteAdSet",
+                    "description": "Delete Ad Set",
+                    "params": [
+                        {
+                            "name": "adSetId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad set."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "getAds",
+                    "description": "Get Ads",
+                    "params": [
+                        {
+                            "name": "adAccountId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad account."
+                        },
+                        {
+                            "name": "datePreset",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Predefined date range used to aggregate insights metrics."
+                        },
+                        {
+                            "name": "effectiveStatus",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Filter ads by effective status."
+                        },
+                        {
+                            "name": "timeRange",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Date range used to aggregate insights metrics."
+                        },
+                        {
+                            "name": "updatedSince",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Time since the Ad has been updated."
+                        },
+                        {
+                            "name": "fields",
+                            "type": "stringOrExpression",
+                            "required": false,
+                            "defaultValue": "",
+                            "description": "Fields of the ads."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "createAdSet",
+                    "description": "Create Ad Set",
+                    "params": [
+                        {
+                            "name": "adAccountId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad account."
+                        },
+                        {
+                            "name": "properties",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Ad set properties."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
+                    "isHidden": false
+                },
+                {
+                    "name": "deleteAd",
+                    "description": "Delete Ad",
+                    "params": [
+                        {
+                            "name": "adId",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "ID of the ad."
+                        },
+                        {
+                            "name": "responseVariable",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "Variable name to store the response payload."
+                        },
+                        {
+                            "name": "overwriteBody",
+                            "type": "checkbox",
+                            "required": false,
+                            "defaultValue": "false",
+                            "description": "Replace the current message payload with the operation response."
+                        }
+                    ],
                     "isHidden": false
                 }
             ],
             "connections": [
                 {
                     "name": "facebookAds",
-                    "description": "Connection for interacting with Facebook Ads."
+                    "description": "Facebook Ad Connection",
+                    "params": [
+                        {
+                            "name": "connectionName",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "FB_AD_CONNECTION",
+                            "description": "The name for the Facebook Ad connection."
+                        },
+                        {
+                            "name": "base",
+                            "type": "string",
+                            "required": true,
+                            "defaultValue": "https://graph.facebook.com/v20.0",
+                            "description": "The service root URL."
+                        },
+                        {
+                            "name": "accessToken",
+                            "type": "stringOrExpression",
+                            "required": true,
+                            "defaultValue": "",
+                            "description": "The access token to authenticate the request."
+                        }
+                    ]
                 }
-            ],
-            "isHidden": false
+            ]
         },
         {
             "tagName": "v1.1.0",
